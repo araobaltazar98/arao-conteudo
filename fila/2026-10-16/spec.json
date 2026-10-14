@@ -1,0 +1,46 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Custo por paciente",
+      "titulo": "Lead não é *paciente*.",
+      "subtitulo": "Por que o custo por lead engana o dono da clínica."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Você já viu esse filme.",
+      "texto": "A agência comemora: o custo por lead caiu 30%.\n\nA recepção reclama que os leads não respondem.\n\nE a agenda da clínica continua *exatamente igual*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Onde o lead some",
+      "titulo": "Entre o clique e a cadeira, o lead se perde em três lugares.",
+      "itens": [
+        "No primeiro contato que leva horas para acontecer.",
+        "No WhatsApp sem follow-up depois do primeiro “oi”.",
+        "No CRM que não conversa com a mídia."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "A conta que importa",
+      "numero": "R$ 200",
+      "contexto": "é o custo real de cada paciente quando o lead custa R$ 20 e só *1 em cada 10* agenda e comparece.",
+      "fonte": "Exemplo ilustrativo"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Ver custo por lead sem acompanhar a jornada inteira não é analisar dados. É *rasgar dinheiro*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Meça o que paga as contas.",
+      "texto": "Custo por lead é o começo da conta, não o resultado. Salve este post e revise com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Seu custo por lead caiu. E o faturamento?\n\nCusto por lead mede o começo da jornada. O que paga as contas da clínica é o paciente que agenda, comparece e fecha o tratamento.\n\nNo carrossel: onde o lead se perde entre o clique e a cadeira, e a conta que mostra o custo real de cada paciente.\n\nSalve para revisar com a sua equipe. E se quiser saber quanto custa o paciente da sua clínica, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

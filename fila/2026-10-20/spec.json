@@ -1,0 +1,49 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Onde os leads vazam",
+      "titulo": "O lead do *sábado* à noite.",
+      "subtitulo": "Ele clicou no anúncio, mandou mensagem e ninguém respondeu."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "O que acontece",
+      "titulo": "Sábado, 21h.",
+      "texto": "O paciente finalmente tem tempo de pesquisar. Vê o anúncio, chama no WhatsApp e pergunta o valor.\n\nA recepção só abre na segunda. Até lá, ele já conversou com *outras três clínicas*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Por que isso custa caro",
+      "titulo": "O anúncio funcionou. O atendimento, não.",
+      "itens": [
+        "Você pagou pelo clique do mesmo jeito.",
+        "A resposta chega quando o interesse já esfriou.",
+        "No relatório, ele aparece como um lead “ruim”."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "O que fazer",
+      "titulo": "Três ajustes para o fim de semana.",
+      "itens": [
+        "Medir a que horas os leads chegam, por dia da semana.",
+        "Responder na hora com uma mensagem automática que já agenda.",
+        "Retomar na segunda, primeiro, quem chegou no fim de semana."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "O problema raramente é o anúncio. É o que acontece *depois* dele."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Quanto custa o seu paciente?",
+      "texto": "Se você não sabe a que horas seus leads chegam, já tem por onde começar. Salve e revise com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Sábado, 21h. Um paciente vê seu anúncio, chama no WhatsApp e pergunta o valor.\n\nA recepção só abre na segunda. Até lá, ele já falou com outras clínicas. No relatório, ele vira um lead “ruim”. Mas o anúncio fez a parte dele.\n\nNo carrossel: por que o lead do fim de semana se perde e três ajustes simples para não pagar por clique que ninguém atende.\n\nSalve para revisar com a sua equipe. Se quiser saber onde os leads da sua clínica estão vazando, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
