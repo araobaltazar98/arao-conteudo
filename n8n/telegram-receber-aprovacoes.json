@@ -1,0 +1,132 @@
+{
+  "name": "Telegram · receber aprovações (Arão Baltazar)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "g",
+      "name": "A cada minuto",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "m",
+      "name": "Testar agora",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "telegram_token",
+              "value": "COLE_AQUI_O_TOKEN_DO_BOT",
+              "type": "string"
+            },
+            {
+              "id": "c2",
+              "name": "chat_id",
+              "value": "COLE_AQUI_O_SEU_ID_DO_TELEGRAM",
+              "type": "string"
+            },
+            {
+              "id": "c3",
+              "name": "github_token",
+              "value": "COLE_AQUI_O_TOKEN_DO_GITHUB",
+              "type": "string"
+            },
+            {
+              "id": "c4",
+              "name": "repo",
+              "value": "araobaltazar98/arao-conteudo",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg = $input.first().json;\nconst gh = (caminho, opts = {}) => this.helpers.httpRequest({\n  url: `https://api.github.com/repos/${cfg.repo}/${caminho}`,\n  headers: { Authorization: `Bearer ${cfg.github_token}`, 'User-Agent': 'n8n-arao-conteudo', Accept: 'application/vnd.github+json' },\n  json: true, ...opts,\n});\nconst tg = (metodo, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `https://api.telegram.org/bot${cfg.telegram_token}/${metodo}`, body: corpo, json: true,\n});\nconst datasDoPR = async (pr) => {\n  const arquivos = await gh(`pulls/${pr}/files?per_page=100`);\n  return [...new Set(arquivos.map(f => (f.filename.match(/^fila\\/(\\d{4}-\\d{2}-\\d{2})\\/post\\.json$/) || [])[1]).filter(Boolean))].sort();\n};\nconst st = $getWorkflowStaticData('global');\nst.offset = st.offset || 0;\nst.decisoes = st.decisoes || {};\nst.motivos = st.motivos || {};\nconst eu = (id) => String(id) === String(cfg.chat_id);\nconst upd = await tg('getUpdates', { offset: st.offset, timeout: 0, allowed_updates: ['callback_query', 'message'] });\nconst log = [];\n\nfor (const u of (upd.result || [])) {\n  st.offset = u.update_id + 1;\n  try {\n    if (u.callback_query) {\n      const q = u.callback_query;\n      if (!eu(q.from.id)) { await tg('answerCallbackQuery', { callback_query_id: q.id, text: 'Sem permissão.' }); continue; }\n      const [acao, pr, data] = q.data.split('|');\n      const info = await gh(`pulls/${pr}`);\n      if (info.state !== 'open') {\n        await tg('answerCallbackQuery', { callback_query_id: q.id, text: 'Esta semana já foi concluída.' });\n        continue;\n      }\n      st.decisoes[pr] = st.decisoes[pr] || {};\n\n      if (acao === 'r') {\n        const caminho = `fila/${data}/post.json`;\n        const arq = await gh(`contents/${caminho}?ref=${encodeURIComponent(info.head.ref)}`);\n        const post = JSON.parse(Buffer.from(arq.content, 'base64').toString('utf8'));\n        post.status = 'reprovado';\n        await gh(`contents/${caminho}`, { method: 'PUT', body: {\n          message: `Não aprovado no Telegram: ${data}`,\n          content: Buffer.from(JSON.stringify(post, null, 2) + '\\n', 'utf8').toString('base64'),\n          sha: arq.sha, branch: info.head.ref,\n        } });\n      }\n      st.decisoes[pr][data] = acao;\n\n      await tg('editMessageReplyMarkup', { chat_id: cfg.chat_id, message_id: q.message.message_id, reply_markup: { inline_keyboard: [] } });\n      await tg('answerCallbackQuery', { callback_query_id: q.id, text: acao === 'a' ? 'Aprovado' : 'Não aprovado' });\n      const [a, m, dd] = data.split('-');\n      if (acao === 'a') {\n        await tg('sendMessage', { chat_id: cfg.chat_id, reply_to_message_id: q.message.message_id, text: `Aprovado. Sai em ${dd}/${m}, às 12h.` });\n      } else {\n        const p = await tg('sendMessage', { chat_id: cfg.chat_id, reply_to_message_id: q.message.message_id,\n          text: `Não aprovado: o post de ${dd}/${m} não será publicado. O que ajustar? Responda a esta mensagem, ou escreva \"pular\".`,\n          reply_markup: { force_reply: true } });\n        st.motivos[p.result.message_id] = { pr, data };\n      }\n\n      const datas = await datasDoPR(pr);\n      const dec = st.decisoes[pr];\n      if (datas.every(d => dec[d])) {\n        if (datas.some(d => dec[d] === 'a')) {\n          await gh(`pulls/${pr}/merge`, { method: 'PUT', body: { merge_method: 'squash', commit_title: `Aprovado no Telegram: posts da semana (#${pr})` } });\n          await tg('sendMessage', { chat_id: cfg.chat_id, text: 'Semana concluída. Os posts aprovados estão na fila de publicação.' });\n        } else {\n          await gh(`pulls/${pr}`, { method: 'PATCH', body: { state: 'closed' } });\n          await tg('sendMessage', { chat_id: cfg.chat_id, text: 'Nenhum post aprovado nesta semana. Nada será publicado.' });\n        }\n        delete st.decisoes[pr];\n      }\n      log.push({ pr, data, acao });\n    } else if (u.message && eu(u.message.chat.id) && u.message.reply_to_message && st.motivos[u.message.reply_to_message.message_id]) {\n      const { pr, data } = st.motivos[u.message.reply_to_message.message_id];\n      delete st.motivos[u.message.reply_to_message.message_id];\n      const texto = (u.message.text || '').trim();\n      if (texto && texto.toLowerCase() !== 'pular') {\n        await gh(`issues/${pr}/comments`, { method: 'POST', body: { body: `Ajuste pedido no Telegram para o post de ${data}:\\n\\n> ${texto.replace(/\\n/g, '\\n> ')}` } });\n        await tg('sendMessage', { chat_id: cfg.chat_id, text: 'Anotado. O pedido ficou registrado para a próxima versão.' });\n      }\n      log.push({ pr, data, motivo: texto });\n    }\n  } catch (e) {\n    log.push({ erro: e.message });\n    await tg('sendMessage', { chat_id: cfg.chat_id, text: `Não consegui processar a sua resposta: ${e.message}` });\n  }\n}\nreturn [{ json: { processados: log.length, log } }];"
+      },
+      "id": "k",
+      "name": "Processar respostas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        100
+      ]
+    }
+  ],
+  "connections": {
+    "A cada minuto": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Testar agora": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Processar respostas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": true
+  },
+  "pinData": {}
+}

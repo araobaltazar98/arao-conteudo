@@ -1,0 +1,136 @@
+{
+  "name": "Telegram · enviar posts para aprovação (Arão Baltazar)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 18 * * 0"
+            }
+          ]
+        }
+      },
+      "id": "g",
+      "name": "Domingo, 18h30",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "m",
+      "name": "Testar agora",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "telegram_token",
+              "value": "COLE_AQUI_O_TOKEN_DO_BOT",
+              "type": "string"
+            },
+            {
+              "id": "c2",
+              "name": "chat_id",
+              "value": "COLE_AQUI_O_SEU_ID_DO_TELEGRAM",
+              "type": "string"
+            },
+            {
+              "id": "c3",
+              "name": "github_token",
+              "value": "COLE_AQUI_O_TOKEN_DO_GITHUB",
+              "type": "string"
+            },
+            {
+              "id": "c4",
+              "name": "repo",
+              "value": "araobaltazar98/arao-conteudo",
+              "type": "string"
+            },
+            {
+              "id": "c5",
+              "name": "reenviar",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg = $input.first().json;\nconst gh = (caminho, opts = {}) => this.helpers.httpRequest({\n  url: `https://api.github.com/repos/${cfg.repo}/${caminho}`,\n  headers: { Authorization: `Bearer ${cfg.github_token}`, 'User-Agent': 'n8n-arao-conteudo', Accept: 'application/vnd.github+json' },\n  json: true, ...opts,\n});\nconst tg = (metodo, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `https://api.telegram.org/bot${cfg.telegram_token}/${metodo}`, body: corpo, json: true,\n});\nconst datasDoPR = async (pr) => {\n  const arquivos = await gh(`pulls/${pr}/files?per_page=100`);\n  return [...new Set(arquivos.map(f => (f.filename.match(/^fila\\/(\\d{4}-\\d{2}-\\d{2})\\/post\\.json$/) || [])[1]).filter(Boolean))].sort();\n};\nconst st = $getWorkflowStaticData('global');\nst.enviados = st.enviados || [];\nconst dias = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];\nconst prs = await gh('pulls?state=open&per_page=20');\nconst saida = [];\n\nfor (const pr of prs) {\n  if (!pr.head.ref.startsWith('semana-')) continue;\n  if (st.enviados.includes(pr.number) && !cfg.reenviar) continue;\n  const datas = await datasDoPR(pr.number);\n  if (!datas.length) continue;\n\n  await tg('sendMessage', { chat_id: cfg.chat_id, text: `Posts da semana para aprovar: ${datas.length}. Veja cada um e toque em Aprovar ou Não aprovar.` });\n\n  for (const d of datas) {\n    const base = `https://raw.githubusercontent.com/${cfg.repo}/${pr.head.ref}/fila/${d}`;\n    let post = await this.helpers.httpRequest({ url: `${base}/post.json`, qs: { t: Date.now() }, json: true });\n    if (typeof post === 'string') post = JSON.parse(post);\n    await tg('sendMediaGroup', {\n      chat_id: cfg.chat_id,\n      media: post.imagens.slice(0, 10).map(f => ({ type: 'photo', media: `${base}/${f}` })),\n    });\n    const [a, m, dd] = d.split('-').map(Number);\n    const dia = dias[new Date(Date.UTC(a, m - 1, dd, 12)).getUTCDay()];\n    const texto = `${dia}, ${String(dd).padStart(2, '0')}/${String(m).padStart(2, '0')} · ${post.tema}\\n\\nLegenda:\\n${post.legenda}`.slice(0, 4000);\n    await tg('sendMessage', {\n      chat_id: cfg.chat_id, text: texto,\n      reply_markup: { inline_keyboard: [[\n        { text: '✅ Aprovar', callback_data: `a|${pr.number}|${d}` },\n        { text: '❌ Não aprovar', callback_data: `r|${pr.number}|${d}` },\n      ]] },\n    });\n  }\n  if (!st.enviados.includes(pr.number)) st.enviados.push(pr.number);\n  saida.push({ json: { pr: pr.number, datas } });\n}\nreturn saida.length ? saida : [{ json: { resultado: 'nenhum post novo para aprovar' } }];"
+      },
+      "id": "k",
+      "name": "Enviar posts da semana",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        100
+      ]
+    }
+  ],
+  "connections": {
+    "Domingo, 18h30": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Testar agora": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Enviar posts da semana",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo"
+  },
+  "pinData": {}
+}
