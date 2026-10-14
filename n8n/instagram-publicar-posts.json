@@ -1,0 +1,142 @@
+{
+  "name": "Instagram · publicar posts aprovados (Arão Baltazar)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 12 * * 2,5"
+            }
+          ]
+        }
+      },
+      "id": "a1",
+      "name": "Terça e sexta, 12h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a2",
+      "name": "Testar agora",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cfg1",
+              "name": "ig_user_id",
+              "value": "COLE_AQUI_O_ID_DA_CONTA_INSTAGRAM",
+              "type": "string"
+            },
+            {
+              "id": "cfg2",
+              "name": "access_token",
+              "value": "COLE_AQUI_O_TOKEN_DE_LONGA_DURACAO",
+              "type": "string"
+            },
+            {
+              "id": "cfg3",
+              "name": "repo",
+              "value": "araobaltazar98/arao-conteudo",
+              "type": "string"
+            },
+            {
+              "id": "cfg4",
+              "name": "branch",
+              "value": "main",
+              "type": "string"
+            },
+            {
+              "id": "cfg5",
+              "name": "graph_version",
+              "value": "v21.0",
+              "type": "string"
+            },
+            {
+              "id": "cfg6",
+              "name": "data_teste",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg = $input.first().json;\nconst tz = 'America/Sao_Paulo';\nconst hoje = cfg.data_teste && String(cfg.data_teste).trim()\n  ? String(cfg.data_teste).trim()\n  : new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());\nconst base = `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch}/fila/${hoje}`;\n\nlet post;\ntry {\n  post = await this.helpers.httpRequest({ url: `${base}/post.json`, qs: { t: Date.now() }, json: true });\n} catch (e) {\n  return [{ json: { resultado: 'sem post para hoje', data: hoje } }];\n}\nif (typeof post === 'string') post = JSON.parse(post);\nif (post.status !== 'aprovado') {\n  return [{ json: { resultado: `não publicado (status: ${post.status})`, data: hoje } }];\n}\n\nconst G = `https://graph.facebook.com/${cfg.graph_version}`;\nconst tok = cfg.access_token;\nconst enviar = (caminho, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `${G}/${caminho}`, body: { ...corpo, access_token: tok }, json: true,\n});\nconst urls = post.imagens.map(f => `${base}/${f}`);\n\nlet criacao;\nif (urls.length === 1) {\n  criacao = (await enviar(`${cfg.ig_user_id}/media`, { image_url: urls[0], caption: post.legenda })).id;\n} else {\n  const filhos = [];\n  for (const u of urls) {\n    filhos.push((await enviar(`${cfg.ig_user_id}/media`, { image_url: u, is_carousel_item: true })).id);\n  }\n  criacao = (await enviar(`${cfg.ig_user_id}/media`, {\n    media_type: 'CAROUSEL', children: filhos.join(','), caption: post.legenda,\n  })).id;\n}\n\nfor (let i = 0; i < 12; i++) {\n  const st = await this.helpers.httpRequest({ url: `${G}/${criacao}`, qs: { fields: 'status_code', access_token: tok }, json: true });\n  if (st.status_code === 'FINISHED') break;\n  if (st.status_code === 'ERROR') throw new Error('O Instagram recusou a mídia deste post.');\n  await new Promise(r => setTimeout(r, 5000));\n}\n\nconst pub = await enviar(`${cfg.ig_user_id}/media_publish`, { creation_id: criacao });\nreturn [{ json: { resultado: 'publicado', data: hoje, tema: post.tema, media_id: pub.id } }];"
+      },
+      "id": "a4",
+      "name": "Publicar post do dia",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        100
+      ]
+    }
+  ],
+  "connections": {
+    "Terça e sexta, 12h": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Testar agora": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Publicar post do dia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo"
+  },
+  "pinData": {}
+}
