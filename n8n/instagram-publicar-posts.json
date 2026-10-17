@@ -39,13 +39,13 @@
             {
               "id": "cfg1",
               "name": "ig_user_id",
-              "value": "COLE_AQUI_O_ID_DA_CONTA_INSTAGRAM",
+              "value": "automatico",
               "type": "string"
             },
             {
               "id": "cfg2",
               "name": "access_token",
-              "value": "COLE_AQUI_O_TOKEN_DE_LONGA_DURACAO",
+              "value": "COLE_AQUI_O_TOKEN_DO_INSTAGRAM",
               "type": "string"
             },
             {
@@ -63,7 +63,7 @@
             {
               "id": "cfg5",
               "name": "graph_version",
-              "value": "v21.0",
+              "value": "v23.0",
               "type": "string"
             },
             {
@@ -87,7 +87,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const cfg = $input.first().json;\nconst tz = 'America/Sao_Paulo';\nconst hoje = cfg.data_teste && String(cfg.data_teste).trim()\n  ? String(cfg.data_teste).trim()\n  : new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());\nconst base = `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch}/fila/${hoje}`;\n\nlet post;\ntry {\n  post = await this.helpers.httpRequest({ url: `${base}/post.json`, qs: { t: Date.now() }, json: true });\n} catch (e) {\n  return [{ json: { resultado: 'sem post para hoje', data: hoje } }];\n}\nif (typeof post === 'string') post = JSON.parse(post);\nif (post.status !== 'aprovado') {\n  return [{ json: { resultado: `não publicado (status: ${post.status})`, data: hoje } }];\n}\n\nconst G = `https://graph.facebook.com/${cfg.graph_version}`;\nconst tok = cfg.access_token;\nconst enviar = (caminho, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `${G}/${caminho}`, body: { ...corpo, access_token: tok }, json: true,\n});\nconst urls = post.imagens.map(f => `${base}/${f}`);\n\nlet criacao;\nif (urls.length === 1) {\n  criacao = (await enviar(`${cfg.ig_user_id}/media`, { image_url: urls[0], caption: post.legenda })).id;\n} else {\n  const filhos = [];\n  for (const u of urls) {\n    filhos.push((await enviar(`${cfg.ig_user_id}/media`, { image_url: u, is_carousel_item: true })).id);\n  }\n  criacao = (await enviar(`${cfg.ig_user_id}/media`, {\n    media_type: 'CAROUSEL', children: filhos.join(','), caption: post.legenda,\n  })).id;\n}\n\nfor (let i = 0; i < 12; i++) {\n  const st = await this.helpers.httpRequest({ url: `${G}/${criacao}`, qs: { fields: 'status_code', access_token: tok }, json: true });\n  if (st.status_code === 'FINISHED') break;\n  if (st.status_code === 'ERROR') throw new Error('O Instagram recusou a mídia deste post.');\n  await new Promise(r => setTimeout(r, 5000));\n}\n\nconst pub = await enviar(`${cfg.ig_user_id}/media_publish`, { creation_id: criacao });\nreturn [{ json: { resultado: 'publicado', data: hoje, tema: post.tema, media_id: pub.id } }];"
+        "jsCode": "const cfg = $input.first().json;\nconst st = $getWorkflowStaticData('global');\nconst tz = 'America/Sao_Paulo';\nconst hoje = cfg.data_teste && String(cfg.data_teste).trim()\n  ? String(cfg.data_teste).trim()\n  : new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());\nconst base = `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch}/fila/${hoje}`;\n\nlet post;\ntry {\n  post = await this.helpers.httpRequest({ url: `${base}/post.json`, qs: { t: Date.now() }, json: true });\n} catch (e) {\n  return [{ json: { resultado: 'sem post para hoje', data: hoje } }];\n}\nif (typeof post === 'string') post = JSON.parse(post);\nif (post.status !== 'aprovado') {\n  return [{ json: { resultado: `não publicado (status: ${post.status})`, data: hoje } }];\n}\n\n// API do Instagram com login do Instagram (sem Página do Facebook)\nconst G = `https://graph.instagram.com/${cfg.graph_version}`;\nconst tokenConfig = String(cfg.access_token).trim();\nlet tok = (st.token && st.tokenBase === tokenConfig) ? st.token : tokenConfig;\n\n// Renova o token (validade de 60 dias) no máximo uma vez por semana\nif (st.tokenBase !== tokenConfig || !st.renovadoEm || Date.now() - st.renovadoEm > 7 * 864e5) {\n  try {\n    const r = await this.helpers.httpRequest({ url: 'https://graph.instagram.com/refresh_access_token',\n      qs: { grant_type: 'ig_refresh_token', access_token: tok }, json: true });\n    if (r.access_token) { st.token = r.access_token; st.tokenBase = tokenConfig; st.renovadoEm = Date.now(); tok = r.access_token; }\n  } catch (e) { /* token com menos de 24h ainda não pode ser renovado; segue com o atual */ }\n}\n\n// Descobre o ID da conta sozinho, se não estiver preenchido\nlet igId = String(cfg.ig_user_id || '').trim();\nif (!igId || igId.startsWith('COLE_AQUI') || igId === 'automatico') {\n  const me = await this.helpers.httpRequest({ url: `${G}/me`, qs: { fields: 'user_id,username', access_token: tok }, json: true });\n  igId = String(me.user_id || me.id);\n}\n\nconst enviar = (caminho, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `${G}/${caminho}`, body: { ...corpo, access_token: tok }, json: true,\n});\nconst urls = post.imagens.map(f => `${base}/${f}`);\n\nlet criacao;\nif (urls.length === 1) {\n  criacao = (await enviar(`${igId}/media`, { image_url: urls[0], caption: post.legenda })).id;\n} else {\n  const filhos = [];\n  for (const u of urls) filhos.push((await enviar(`${igId}/media`, { image_url: u, is_carousel_item: true })).id);\n  criacao = (await enviar(`${igId}/media`, { media_type: 'CAROUSEL', children: filhos.join(','), caption: post.legenda })).id;\n}\n\nfor (let i = 0; i < 12; i++) {\n  const s = await this.helpers.httpRequest({ url: `${G}/${criacao}`, qs: { fields: 'status_code', access_token: tok }, json: true });\n  if (s.status_code === 'FINISHED') break;\n  if (s.status_code === 'ERROR') throw new Error('O Instagram recusou a mídia deste post.');\n  await new Promise(r => setTimeout(r, 5000));\n}\n\nconst pub = await enviar(`${igId}/media_publish`, { creation_id: criacao });\nreturn [{ json: { resultado: 'publicado', data: hoje, tema: post.tema, media_id: pub.id } }];"
       },
       "id": "a4",
       "name": "Publicar post do dia",

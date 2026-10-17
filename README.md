@@ -41,7 +41,7 @@ Responda até a véspera de cada post: o que não estiver aprovado na `main` às
 | Token do bot do Telegram | @BotFather, ao criar o bot | Os dois workflows do Telegram |
 | Seu ID do Telegram | @userinfobot | Os dois workflows do Telegram |
 | Token do GitHub | GitHub → Settings → Developer settings → Fine-grained tokens. Só o repositório `arao-conteudo`, leitura e escrita em *Contents* e *Pull requests* | Os dois workflows do Telegram |
-| ID da conta do Instagram e token da Meta | Ver "Instagram" abaixo | Workflow do Instagram |
+| Token do Instagram | Ver "Instagram" abaixo | Workflow do Instagram |
 
 Os tokens ficam só no seu n8n. Nunca coloque um token neste repositório, que é público.
 
@@ -57,14 +57,17 @@ Cuidados:
 - Não rode "Testar agora" no workflow de respostas enquanto ele estiver ativo: os dois disputariam as mesmas mensagens.
 - Para reenviar uma semana já enviada, preencha `reenviar` com `sim`, rode "Testar agora" e apague o campo depois.
 
-### Instagram
+### Instagram (sem Página do Facebook)
 
-1. **Pré-requisitos:** conta do Instagram profissional (empresa ou criador) ligada a uma Página do Facebook, e um app no Meta for Developers com as permissões `instagram_basic`, `instagram_content_publish` e `pages_read_engagement`.
-2. **Token:** use um token de usuário do sistema do Business Manager, que não expira. Pegue o **ID da conta do Instagram** (`GET /me/accounts`, depois `GET /{page-id}?fields=instagram_business_account`).
-3. **Importar:** `n8n/instagram-publicar-posts.json`.
-4. **Configuração:** cole `ig_user_id` e `access_token`.
-5. **Testar:** preencha `data_teste` com uma data que tenha post aprovado na `main` e clique em "Testar agora". Atenção: o teste **publica de verdade**. Depois **apague** `data_teste`, senão o mesmo post é republicado.
-6. **Ativar** o workflow. O fuso America/Sao_Paulo já vem configurado.
+O workflow usa a API do Instagram com login do Instagram: publica direto na conta profissional, sem Página do Facebook nem Gerenciador de Negócios.
+
+1. **Conta:** o Instagram precisa ser profissional (Criador ou Empresa).
+2. **App:** em developers.facebook.com/apps, crie um app com o caso de uso **"Gerenciar mensagens e conteúdo no Instagram"**.
+3. **Token:** no app, abra **Configuração da API com login do Instagram** → **Gerar tokens de acesso** → **Adicionar conta**, entre com o seu Instagram e autorize. Clique em **Gerar token** e copie.
+4. **n8n:** no workflow "Instagram · publicar posts aprovados", nó **Configuração**, cole o token em `access_token` e salve. Deixe `ig_user_id` como `automatico`: o workflow descobre o ID sozinho.
+5. **Renovação:** o token vale 60 dias, mas o workflow o renova sozinho a cada semana. Se o workflow ficar parado por mais de 60 dias, gere um token novo.
+6. **Testar:** preencha `data_teste` com uma data que tenha post aprovado na `main` e clique em "Testar agora". Atenção: o teste **publica de verdade**. Depois **apague** `data_teste`.
+7. **Publicar** o workflow. O fuso America/Sao_Paulo já vem configurado.
 
 ## Formato do post.json
 
