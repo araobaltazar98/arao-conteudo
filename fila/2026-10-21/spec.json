@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "A conta do paciente",
+      "titulo": "Quanto custa o seu *paciente*?",
+      "subtitulo": "A conta que todo dono de clínica deveria saber fazer."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Reunião com a agência.",
+      "texto": "O relatório mostra cliques, alcance e custo por lead.\n\nVocê pergunta quanto custou cada paciente que sentou na cadeira no mês.\n\nNinguém na sala sabe *responder*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A conta em 4 passos",
+      "titulo": "Do investimento ao paciente.",
+      "itens": [
+        "Some tudo o que foi investido em mídia no mês.",
+        "Conte os leads que chegaram, por canal.",
+        "Veja quantos agendaram e quantos compareceram.",
+        "Divida o investimento pelos pacientes que fecharam tratamento."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "A conta que importa",
+      "numero": "R$ 500",
+      "contexto": "é o custo de cada paciente quando R$ 10 mil em mídia geram 400 leads, 50 consultas e *20 tratamentos* fechados.",
+      "fonte": "Exemplo ilustrativo"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Custo por lead diz quanto você gastou. Custo por paciente diz se *valeu a pena*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Faça a conta deste mês.",
+      "texto": "Se algum desses números não existe na sua clínica, é por ali que o lead está vazando. Salve e refaça a conta com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quanto custou cada paciente que sentou na cadeira da sua clínica neste mês?\n\nA maioria dos relatórios para no custo por lead. É um número útil, mas mede só o começo da jornada. O que paga as contas é o paciente que agenda, comparece e fecha o tratamento.\n\nNo carrossel: a conta do custo por paciente em 4 passos e um exemplo ilustrativo com números redondos.\n\nSe algum desses números não existe hoje na sua clínica, ali está o primeiro vazamento de leads a resolver.\n\nSalve para refazer a conta com a sua equipe. Se quiser ajuda para montar essa conta, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
