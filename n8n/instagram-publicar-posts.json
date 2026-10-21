@@ -6,14 +6,14 @@
         "rule": {
           "interval": [
             {
-              "field": "cronExpression",
-              "expression": "0 12 * * 2,5"
+              "field": "minutes",
+              "minutesInterval": 10
             }
           ]
         }
       },
       "id": "a1",
-      "name": "Terça e sexta, 12h",
+      "name": "A cada 10 minutos",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
@@ -71,6 +71,12 @@
               "name": "data_teste",
               "value": "",
               "type": "string"
+            },
+            {
+              "id": "cfg7",
+              "name": "github_token",
+              "value": "COLE_AQUI_O_TOKEN_DO_GITHUB",
+              "type": "string"
             }
           ]
         },
@@ -87,10 +93,10 @@
     },
     {
       "parameters": {
-        "jsCode": "const cfg = $input.first().json;\nconst st = $getWorkflowStaticData('global');\nconst tz = 'America/Sao_Paulo';\nconst hoje = cfg.data_teste && String(cfg.data_teste).trim()\n  ? String(cfg.data_teste).trim()\n  : new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());\nconst base = `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch}/fila/${hoje}`;\n\nlet post;\ntry {\n  post = await this.helpers.httpRequest({ url: `${base}/post.json`, qs: { t: Date.now() }, json: true });\n} catch (e) {\n  return [{ json: { resultado: 'sem post para hoje', data: hoje } }];\n}\nif (typeof post === 'string') post = JSON.parse(post);\nif (post.status !== 'aprovado') {\n  return [{ json: { resultado: `não publicado (status: ${post.status})`, data: hoje } }];\n}\n\n// API do Instagram com login do Instagram (sem Página do Facebook)\nconst G = `https://graph.instagram.com/${cfg.graph_version}`;\nconst tokenConfig = String(cfg.access_token).trim();\nlet tok = (st.token && st.tokenBase === tokenConfig) ? st.token : tokenConfig;\n\n// Renova o token (validade de 60 dias) no máximo uma vez por semana\nif (st.tokenBase !== tokenConfig || !st.renovadoEm || Date.now() - st.renovadoEm > 7 * 864e5) {\n  try {\n    const r = await this.helpers.httpRequest({ url: 'https://graph.instagram.com/refresh_access_token',\n      qs: { grant_type: 'ig_refresh_token', access_token: tok }, json: true });\n    if (r.access_token) { st.token = r.access_token; st.tokenBase = tokenConfig; st.renovadoEm = Date.now(); tok = r.access_token; }\n  } catch (e) { /* token com menos de 24h ainda não pode ser renovado; segue com o atual */ }\n}\n\n// Descobre o ID da conta sozinho, se não estiver preenchido\nlet igId = String(cfg.ig_user_id || '').trim();\nif (!igId || igId.startsWith('COLE_AQUI') || igId === 'automatico') {\n  const me = await this.helpers.httpRequest({ url: `${G}/me`, qs: { fields: 'user_id,username', access_token: tok }, json: true });\n  igId = String(me.user_id || me.id);\n}\n\nconst enviar = (caminho, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `${G}/${caminho}`, body: { ...corpo, access_token: tok }, json: true,\n});\nconst urls = post.imagens.map(f => `${base}/${f}`);\n\nlet criacao;\nif (urls.length === 1) {\n  criacao = (await enviar(`${igId}/media`, { image_url: urls[0], caption: post.legenda })).id;\n} else {\n  const filhos = [];\n  for (const u of urls) filhos.push((await enviar(`${igId}/media`, { image_url: u, is_carousel_item: true })).id);\n  criacao = (await enviar(`${igId}/media`, { media_type: 'CAROUSEL', children: filhos.join(','), caption: post.legenda })).id;\n}\n\nfor (let i = 0; i < 12; i++) {\n  const s = await this.helpers.httpRequest({ url: `${G}/${criacao}`, qs: { fields: 'status_code', access_token: tok }, json: true });\n  if (s.status_code === 'FINISHED') break;\n  if (s.status_code === 'ERROR') throw new Error('O Instagram recusou a mídia deste post.');\n  await new Promise(r => setTimeout(r, 5000));\n}\n\nconst pub = await enviar(`${igId}/media_publish`, { creation_id: criacao });\nreturn [{ json: { resultado: 'publicado', data: hoje, tema: post.tema, media_id: pub.id } }];"
+        "jsCode": "// Roda a cada 10 minutos. Cada post sai no horário de \"publicar_em\" (definido pelo botão\n// \"Antecipar dia e horário\" no Telegram) ou, se não houver, às 12h do dia da pasta.\nconst cfg = $input.first().json;\nconst st = $getWorkflowStaticData('global');\nconst tz = 'America/Sao_Paulo';\nconst agora = Date.now();\nconst diaSP = (ms) => new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(ms));\nconst teste = cfg.data_teste && String(cfg.data_teste).trim();\nconst primeiraVez = !st.publicados;\nst.publicados = st.publicados || {};\nst.tentativas = st.tentativas || {};\n\nconst ghHeaders = { 'User-Agent': 'n8n-arao-conteudo', Accept: 'application/vnd.github+json' };\nconst ghToken = String(cfg.github_token || '').trim();\nif (ghToken && !ghToken.startsWith('COLE_AQUI')) ghHeaders.Authorization = `Bearer ${ghToken}`;\nconst gh = (caminho, qs = {}) => this.helpers.httpRequest({ url: `https://api.github.com/repos/${cfg.repo}/${caminho}`, qs, headers: ghHeaders, json: true });\nconst lerPost = async (branch, data) => {\n  const base = `https://raw.githubusercontent.com/${cfg.repo}/${branch}/fila/${data}`;\n  try {\n    let post = await this.helpers.httpRequest({ url: `${base}/post.json`, qs: { t: agora }, json: true });\n    if (typeof post === 'string') post = JSON.parse(post);\n    return { base, post };\n  } catch (e) { return null; }\n};\n\n// Onde procurar: a main e as branches das semanas com pull request aberto\nconst branches = [cfg.branch];\ntry {\n  for (const pr of await gh('pulls', { state: 'open', per_page: 20 })) if (pr.head.ref.startsWith('semana-')) branches.push(pr.head.ref);\n} catch (e) { /* sem acesso à lista de PRs; segue só com a main */ }\n\n// Posts de 7 dias atrás a 14 dias à frente (um post pode ter sido antecipado ou adiado)\nconst minData = diaSP(agora - 7 * 864e5), maxData = diaSP(agora + 14 * 864e5);\nconst vistos = new Set();\nconst candidatos = [];\nfor (const br of branches) {\n  let pastas = [];\n  try {\n    pastas = (await gh('contents/fila', { ref: br })).filter(f => f.type === 'dir' && /^\\d{4}-\\d{2}-\\d{2}$/.test(f.name)).map(f => f.name);\n  } catch (e) { continue; }\n  for (const d of pastas) {\n    if (vistos.has(d)) continue; // a main tem prioridade\n    if (teste ? d !== teste : (d < minData || d > maxData)) continue;\n    const r = await lerPost(br, d);\n    if (!r) continue;\n    // Na branch da semana, só vale o que já foi aprovado no Telegram\n    if (br !== cfg.branch && !r.post.aprovado_em) continue;\n    vistos.add(d);\n    candidatos.push({ data: d, ...r });\n  }\n}\n\nconst horario = (c) => c.post.publicar_em ? Date.parse(c.post.publicar_em) : Date.parse(`${c.data}T12:00:00-03:00`);\n// Primeira execução depois da atualização: só registra o que já passou, para não republicar\nif (primeiraVez && !teste) {\n  for (const c of candidatos) if (horario(c) <= agora) st.publicados[c.data] = 'antes da atualização';\n  return [{ json: { resultado: 'primeira execução: posts com horário já passado foram registrados e não serão publicados' } }];\n}\nconst prontos = candidatos.filter(c => {\n  if (c.post.status !== 'aprovado') return false;\n  if (teste) return true;\n  if (st.publicados[c.data] || (st.tentativas[c.data] || 0) >= 3) return false;\n  const h = horario(c);\n  return h <= agora && agora - h < 6 * 36e5; // até 6h de atraso (n8n fora do ar, por exemplo)\n});\nif (!prontos.length) return [{ json: { resultado: 'nada para publicar agora' } }];\n\n// API do Instagram com login do Instagram (sem Página do Facebook)\nconst G = `https://graph.instagram.com/${cfg.graph_version}`;\nconst tokenConfig = String(cfg.access_token).trim();\nlet tok = (st.token && st.tokenBase === tokenConfig) ? st.token : tokenConfig;\n\n// Renova o token (validade de 60 dias) no máximo uma vez por semana\nif (st.tokenBase !== tokenConfig || !st.renovadoEm || Date.now() - st.renovadoEm > 7 * 864e5) {\n  try {\n    const r = await this.helpers.httpRequest({ url: 'https://graph.instagram.com/refresh_access_token',\n      qs: { grant_type: 'ig_refresh_token', access_token: tok }, json: true });\n    if (r.access_token) { st.token = r.access_token; st.tokenBase = tokenConfig; st.renovadoEm = Date.now(); tok = r.access_token; }\n  } catch (e) { /* token com menos de 24h ainda não pode ser renovado; segue com o atual */ }\n}\n\n// Descobre o ID da conta sozinho, se não estiver preenchido\nlet igId = String(cfg.ig_user_id || '').trim();\nif (!igId || igId.startsWith('COLE_AQUI') || igId === 'automatico') {\n  const me = await this.helpers.httpRequest({ url: `${G}/me`, qs: { fields: 'user_id,username', access_token: tok }, json: true });\n  igId = String(me.user_id || me.id);\n}\n\nconst enviar = (caminho, corpo) => this.helpers.httpRequest({\n  method: 'POST', url: `${G}/${caminho}`, body: { ...corpo, access_token: tok }, json: true,\n});\n\nconst resultados = [];\nfor (const { data, base, post } of prontos) {\n  try {\n    const urls = post.imagens.map(f => `${base}/${f}`);\n    let criacao;\n    if (urls.length === 1) {\n      criacao = (await enviar(`${igId}/media`, { image_url: urls[0], caption: post.legenda })).id;\n    } else {\n      const filhos = [];\n      for (const u of urls) filhos.push((await enviar(`${igId}/media`, { image_url: u, is_carousel_item: true })).id);\n      criacao = (await enviar(`${igId}/media`, { media_type: 'CAROUSEL', children: filhos.join(','), caption: post.legenda })).id;\n    }\n    for (let i = 0; i < 12; i++) {\n      const s = await this.helpers.httpRequest({ url: `${G}/${criacao}`, qs: { fields: 'status_code', access_token: tok }, json: true });\n      if (s.status_code === 'FINISHED') break;\n      if (s.status_code === 'ERROR') throw new Error('O Instagram recusou a mídia deste post.');\n      await new Promise(r => setTimeout(r, 5000));\n    }\n    const pub = await enviar(`${igId}/media_publish`, { creation_id: criacao });\n    st.publicados[data] = new Date().toISOString();\n    resultados.push({ json: { resultado: 'publicado', data, tema: post.tema, media_id: pub.id } });\n  } catch (e) {\n    st.tentativas[data] = (st.tentativas[data] || 0) + 1; // desiste depois de 3 tentativas\n    resultados.push({ json: { resultado: 'erro', data, tema: post.tema, erro: e.message, tentativa: st.tentativas[data] } });\n  }\n}\n\n// Limpa registros com mais de 30 dias\nconst limite = diaSP(agora - 30 * 864e5);\nfor (const k of Object.keys(st.publicados)) if (k < limite) delete st.publicados[k];\nfor (const k of Object.keys(st.tentativas)) if (k < limite) delete st.tentativas[k];\nreturn resultados;"
       },
       "id": "a4",
-      "name": "Publicar post do dia",
+      "name": "Publicar posts na hora",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -100,17 +106,6 @@
     }
   ],
   "connections": {
-    "Terça e sexta, 12h": {
-      "main": [
-        [
-          {
-            "node": "Configuração",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Testar agora": {
       "main": [
         [
@@ -126,7 +121,18 @@
       "main": [
         [
           {
-            "node": "Publicar post do dia",
+            "node": "Publicar posts na hora",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "A cada 10 minutos": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
             "type": "main",
             "index": 0
           }

@@ -32,15 +32,23 @@ Analista calmo que explica números para quem decide. Analítico, claro, direto,
 - "Vazamento de leads." (nome do problema)
 - Opinião-assinatura: "Ver custo por lead sem acompanhar a jornada inteira não é analisar dados. É rasgar dinheiro."
 
-## Pilares
+## Pilares e formatos
 
-| Pilar | Dia preferido |
-| --- | --- |
-| A conta do paciente (educação) | Terça |
-| Onde os leads vazam (demonstração) | Terça |
-| Lead não é paciente (opinião) | Sexta |
-| Cases e números (prova) | Sexta |
-| Bastidores, esporte e rotina | Fora dos carrosséis automáticos |
+Uma publicação por dia, às 12h. O calendário completo e o banco de pautas estão em `pautas.md`.
+
+| Dia | Pilar | Formato |
+| --- | --- | --- |
+| Segunda | A conta do paciente (educação) | Carrossel de 6 lâminas |
+| Terça | Onde os leads vazam (demonstração) | Carrossel de 6 lâminas |
+| Quarta | Lead não é paciente (opinião) | Carrossel curto de 3 lâminas: capa → frase → cta |
+| Quinta | Educação (métricas e ferramentas, sempre explicadas) | Carrossel de 6 lâminas |
+| Sexta | Cases e números (prova, só com números liberados) | Carrossel de 6 lâminas |
+| Sábado | Frase da marca | 1 lâmina: frase em fundo escuro |
+| Domingo | Bastidores do método | Carrossel curto de 3 lâminas: capa → lista → cta |
+
+Carrossel de 6 lâminas: capa → texto (a cena) → lista → dado ou lista → frase (fundo escuro) → cta.
+
+Bastidores falam do método e do processo de análise, nunca de histórias pessoais inventadas. Esporte, rotina e vida pessoal ficam fora dos posts automáticos: só entram se o próprio Arão mandar o conteúdo.
 
 ## Visual
 
