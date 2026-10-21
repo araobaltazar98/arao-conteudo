@@ -1,4 +1,4 @@
-// Código do nó "Enviar posts da semana" do workflow n8n/telegram-enviar-aprovacao.json (gerado a partir do JSON; para colar no n8n).
+// Código do nó "Enviar posts da semana" do workflow n8n/telegram-enviar-aprovacao.json (para colar no n8n).
 const cfg = $input.first().json;
 const gh = (caminho, opts = {}) => this.helpers.httpRequest({
   url: `https://api.github.com/repos/${cfg.repo}/${caminho}`,
@@ -24,7 +24,7 @@ for (const pr of prs) {
   const datas = await datasDoPR(pr.number);
   if (!datas.length) continue;
 
-  await tg('sendMessage', { chat_id: cfg.chat_id, text: `Posts da semana para aprovar: ${datas.length}, um por dia. Toque em Aprovar ou Não aprovar em cada um. Cada post aprovado já pode sair no dia dele, às 12h, mesmo antes de você responder os outros.` });
+  await tg('sendMessage', { chat_id: cfg.chat_id, text: `Posts da semana para aprovar: ${datas.length}, um por dia. Toque em Aprovar ou Não aprovar em cada um. Cada post aprovado sai no dia dele, às 12h, mesmo antes de você responder os outros. Para publicar antes, toque em Antecipar dia e horário.` });
 
   for (const d of datas) {
     const base = `https://raw.githubusercontent.com/${cfg.repo}/${pr.head.ref}/fila/${d}`;
@@ -46,6 +46,8 @@ for (const pr of prs) {
       reply_markup: { inline_keyboard: [[
         { text: '✅ Aprovar', callback_data: `a|${pr.number}|${d}` },
         { text: '❌ Não aprovar', callback_data: `r|${pr.number}|${d}` },
+      ], [
+        { text: '🕒 Antecipar dia e horário', callback_data: `h|${pr.number}|${d}` },
       ]] },
     });
     await new Promise(r => setTimeout(r, 1500)); // evita o limite de mensagens do Telegram
