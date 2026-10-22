@@ -75,6 +75,12 @@ Se você já tinha importado os workflows antes, atualize os três sem reimporta
 
 Se preferir reimportar os arquivos, cole de novo os tokens no nó **Configuração** de cada um.
 
+### Sem token do Instagram: modo lembrete
+
+Se o campo `access_token` do workflow do Instagram ficar vazio (ou com `COLE_AQUI...`), nada é publicado automaticamente. Na hora de cada post aprovado, o workflow manda no Telegram as lâminas e a legenda prontas, e você publica pelo app do Instagram em poucos toques. Para isso, o nó **Configuração** do workflow do Instagram precisa dos campos `telegram_token` e `chat_id`, com os mesmos valores dos workflows do Telegram.
+
+Quando quiser publicação automática, basta colar o token do Instagram em `access_token` (passos abaixo).
+
 ### Instagram (sem Página do Facebook)
 
 O workflow usa a API do Instagram com login do Instagram: publica direto na conta profissional, sem Página do Facebook nem Gerenciador de Negócios.
