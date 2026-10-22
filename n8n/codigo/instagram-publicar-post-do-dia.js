@@ -1,6 +1,8 @@
 // Código do nó "Publicar posts na hora" do workflow n8n/instagram-publicar-posts.json (para colar no n8n).
 // Roda a cada 10 minutos. Cada post sai no horário de "publicar_em" (definido pelo botão
 // "Antecipar dia e horário" no Telegram) ou, se não houver, às 12h do dia da pasta.
+// Sem token do Instagram (access_token vazio ou "COLE_AQUI..."), funciona em modo lembrete:
+// na hora do post, manda no Telegram as lâminas e a legenda prontas para publicar pelo app.
 const cfg = $input.first().json;
 const st = $getWorkflowStaticData('global');
 const tz = 'America/Sao_Paulo';
@@ -66,9 +68,46 @@ const prontos = candidatos.filter(c => {
 });
 if (!prontos.length) return [{ json: { resultado: 'nada para publicar agora' } }];
 
+const limpar = () => {
+  // Limpa registros com mais de 30 dias
+  const limite = diaSP(agora - 30 * 864e5);
+  for (const k of Object.keys(st.publicados)) if (k < limite) delete st.publicados[k];
+  for (const k of Object.keys(st.tentativas)) if (k < limite) delete st.tentativas[k];
+};
+
+// Modo lembrete: sem token do Instagram, o post chega pronto no Telegram na hora certa
+const igToken = String(cfg.access_token || '').trim();
+if (!igToken || igToken.startsWith('COLE_AQUI')) {
+  const tg = (metodo, corpo) => this.helpers.httpRequest({
+    method: 'POST', url: `https://api.telegram.org/bot${cfg.telegram_token}/${metodo}`, body: corpo, json: true,
+  });
+  const resultados = [];
+  for (const { data, base, post } of prontos) {
+    try {
+      const urls = post.imagens.map(f => `${base}/${f}`);
+      const n = urls.length;
+      await tg('sendMessage', { chat_id: cfg.chat_id, text:
+        `📲 Hora de publicar: ${post.tema}\n\n` +
+        `1. Salve ${n === 1 ? 'a imagem' : `as ${n} imagens`} abaixo (abra, toque nos três pontinhos e em Salvar).\n` +
+        `2. Copie a legenda da última mensagem (toque e segure → Copiar).\n` +
+        `3. No Instagram, toque em + → Post, escolha ${n === 1 ? 'a imagem' : 'as imagens na ordem'} e cole a legenda.` });
+      if (n === 1) await tg('sendPhoto', { chat_id: cfg.chat_id, photo: urls[0] });
+      else await tg('sendMediaGroup', { chat_id: cfg.chat_id, media: urls.slice(0, 10).map(u => ({ type: 'photo', media: u })) });
+      await tg('sendMessage', { chat_id: cfg.chat_id, text: post.legenda });
+      st.publicados[data] = `lembrete enviado em ${new Date().toISOString()}`;
+      resultados.push({ json: { resultado: 'lembrete enviado no Telegram', data, tema: post.tema } });
+    } catch (e) {
+      st.tentativas[data] = (st.tentativas[data] || 0) + 1;
+      resultados.push({ json: { resultado: 'erro no lembrete', data, tema: post.tema, erro: e.message, tentativa: st.tentativas[data] } });
+    }
+  }
+  limpar();
+  return resultados;
+}
+
 // API do Instagram com login do Instagram (sem Página do Facebook)
 const G = `https://graph.instagram.com/${cfg.graph_version}`;
-const tokenConfig = String(cfg.access_token).trim();
+const tokenConfig = igToken;
 let tok = (st.token && st.tokenBase === tokenConfig) ? st.token : tokenConfig;
 
 // Renova o token (validade de 60 dias) no máximo uma vez por semana
@@ -118,8 +157,5 @@ for (const { data, base, post } of prontos) {
   }
 }
 
-// Limpa registros com mais de 30 dias
-const limite = diaSP(agora - 30 * 864e5);
-for (const k of Object.keys(st.publicados)) if (k < limite) delete st.publicados[k];
-for (const k of Object.keys(st.tentativas)) if (k < limite) delete st.tentativas[k];
+limpar();
 return resultados;
