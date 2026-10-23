@@ -1,0 +1,50 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Educação",
+      "titulo": "CRM e Google Ads, *conectados*.",
+      "subtitulo": "O que muda quando a venda volta para a campanha."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Dois sistemas que não se falam.",
+      "texto": "O Google Ads sabe quem clicou e preencheu o formulário.\n\nO CRM, o sistema onde a recepção registra cada contato, sabe quem agendou, compareceu e fechou.\n\nSem conexão, a campanha aprende com *o clique*, não com o paciente."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "O que muda",
+      "titulo": "Com os dois conectados:",
+      "itens": [
+        "Cada paciente tem origem registrada: campanha, anúncio e palavra-chave.",
+        "O Google Ads recebe de volta quem agendou e quem fechou.",
+        "A campanha passa a buscar pessoas parecidas com pacientes, não com curiosos.",
+        "O relatório mostra faturamento atribuído, não só leads."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Como começar",
+      "titulo": "Três passos.",
+      "itens": [
+        "Guardar no CRM a origem de todo lead: as UTMs e o GCLID, o código de cada clique.",
+        "Marcar no CRM as etapas: agendou, compareceu, fechou.",
+        "Enviar essas etapas de volta ao Google Ads como conversões."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "A campanha aprende com o que você mostra a ela. Mostre o *paciente*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Seu CRM sabe de onde veio cada paciente?",
+      "texto": "Se a resposta for não, a conexão começa por aí. Salve e leve a pergunta para a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "O seu Google Ads sabe quais cliques viraram pacientes?\n\nNa maioria das clínicas, não. O Google Ads conhece o clique e o formulário. O CRM, o sistema onde a recepção registra cada contato, conhece o agendamento, o comparecimento e o tratamento fechado. Os dois não se falam.\n\nQuando passam a conversar, cada paciente ganha uma origem, a campanha recebe de volta quem realmente fechou e o relatório mostra faturamento atribuído, não só leads.\n\nNo carrossel: o que muda com a conexão e três passos para começar.\n\nSalve para levar à próxima conversa com a sua equipe ou agência. Se quiser entender onde o seu funil perde essa informação, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

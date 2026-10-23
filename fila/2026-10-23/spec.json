@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Lead não é paciente",
+      "titulo": "Mais verba não tapa *vazamento*.",
+      "subtitulo": "Por que dobrar o investimento raramente dobra os pacientes."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "A decisão mais comum.",
+      "texto": "Os pacientes do mês ficaram abaixo do esperado.\n\nA primeira reação é aumentar a verba dos anúncios.\n\nMas, se o lead se perde depois do clique, mais verba só aumenta o *desperdício*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Onde o funil vaza",
+      "titulo": "Antes de aumentar a verba, olhe aqui.",
+      "itens": [
+        "O tempo até a primeira resposta da recepção.",
+        "Os leads sem follow-up depois do primeiro contato.",
+        "As faltas que ninguém remarca.",
+        "A origem do paciente que não chega ao CRM."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "A conta que importa",
+      "numero": "R$ 833",
+      "contexto": "passa a custar cada paciente quando a verba dobra de R$ 10 mil para R$ 20 mil e os tratamentos fechados vão de 20 para só *24*.",
+      "fonte": "Exemplo ilustrativo"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Verba acelera o que já existe. Se o funil vaza, ela acelera o *vazamento*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Tape antes de acelerar.",
+      "texto": "Descubra onde o seu funil vaza antes de aprovar o próximo aumento de verba. Salve e revise com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Os pacientes do mês ficaram abaixo do esperado. Aumentar a verba resolve?\n\nQuase sempre, não sozinho. Verba compra cliques e leads. Se o lead se perde depois do clique, na demora da resposta, no WhatsApp sem follow-up ou na falta que ninguém remarca, mais investimento só aumenta o desperdício.\n\nNo carrossel: quatro pontos para olhar antes de aprovar o próximo aumento e um exemplo ilustrativo de como o custo por paciente sobe quando a verba dobra e o funil continua igual.\n\nPrimeiro se tapa o vazamento de leads. Depois se acelera.\n\nSalve para a próxima reunião de orçamento. Se quiser saber onde o funil da sua clínica vaza, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
