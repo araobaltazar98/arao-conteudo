@@ -1,0 +1,31 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Bastidores do método",
+      "titulo": "Leia o relatório *de trás para frente*.",
+      "subtitulo": "A ordem que uso para analisar os números de uma clínica."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A ordem",
+      "titulo": "Do paciente ao anúncio:",
+      "itens": [
+        "Faturamento atribuído: quanto faturaram os pacientes vindos dos anúncios.",
+        "Pacientes e custo por paciente.",
+        "Comparecimentos e agendamentos.",
+        "Leads e tempo de primeira resposta.",
+        "Só então: cliques, custo por clique e criativos."
+      ]
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Comece pelo *fim* da jornada.",
+      "texto": "Assim, cada ajuste no anúncio responde a um problema real da clínica. Salve para a próxima leitura de relatório.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Por onde você começa a ler o relatório de marketing da sua clínica?\n\nNa minha análise, a ordem é inversa à do funil. Primeiro o faturamento atribuído, depois pacientes e custo por paciente, depois comparecimentos e agendamentos, depois leads e tempo de resposta. Cliques e criativos ficam para o fim.\n\nLendo assim, fica claro em qual etapa está o problema antes de mexer no anúncio. Às vezes a campanha está boa e o vazamento está na recepção.\n\nSalve para a próxima leitura de relatório. Se quiser essa análise no seu funil, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "A conta do paciente",
+      "titulo": "Três custos, uma *decisão*.",
+      "subtitulo": "Custo por lead, por agendamento e por paciente: a diferença."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "O lead ficou mais barato.",
+      "texto": "No relatório do mês, o custo por lead caiu.\n\nNa agenda, as consultas de avaliação continuaram as mesmas.\n\nO número que melhorou não era o número que *paga a clínica*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Os três custos",
+      "titulo": "O que cada um mede.",
+      "itens": [
+        "Custo por lead: quanto custou cada contato que chegou.",
+        "Custo por agendamento: quanto custou cada pessoa que marcou horário.",
+        "Custo por paciente: quanto custou cada pessoa que fechou tratamento.",
+        "Cada etapa filtra a anterior. Por isso o custo sobe a cada passo."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "A mesma verba, três leituras",
+      "numero": "20×",
+      "contexto": "é quanto o paciente custa a mais que o lead quando R$ 10 mil geram 400 leads (R$ 25 cada), 80 agendamentos (R$ 125) e 20 pacientes (*R$ 500*).",
+      "fonte": "Exemplo ilustrativo"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Lead barato é bom sinal só quando o *paciente* também fica mais barato."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Qual dos três a sua clínica mede?",
+      "texto": "Se a resposta for só o primeiro, falta a parte da conta que mostra o faturamento. Salve e leve para a próxima reunião.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Qual custo a sua clínica acompanha: por lead, por agendamento ou por paciente?\n\nOs três medem coisas diferentes. O custo por lead mostra quanto custou cada contato. O custo por agendamento, cada pessoa que marcou horário. O custo por paciente, cada pessoa que fechou tratamento.\n\nComo cada etapa filtra a anterior, o custo sobe a cada passo. No exemplo ilustrativo do carrossel, o paciente custa 20 vezes mais que o lead, com a mesma verba.\n\nPor isso um lead mais barato só é boa notícia quando o paciente também fica mais barato.\n\nSalve para comparar com os números da sua clínica. Se quiser montar essa conta, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
