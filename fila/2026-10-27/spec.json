@@ -1,0 +1,52 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Onde os leads vazam",
+      "titulo": "Cinco lugares onde o lead *some*.",
+      "subtitulo": "E por que nenhum deles aparece no relatório da campanha."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "A campanha entregou. A agenda não.",
+      "texto": "A agência mostra que os leads chegaram.\n\nA recepção diz que eles não respondem.\n\nEntre uma ponta e outra, o paciente se perdeu num lugar que *ninguém mede*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Os 5 vazamentos",
+      "titulo": "Onde o lead se perde.",
+      "itens": [
+        "A primeira resposta demora horas, ou só vem no dia seguinte.",
+        "O lead pergunta o preço e a conversa para no valor.",
+        "O orçamento é enviado e ninguém retoma o contato.",
+        "A consulta é marcada, mas não há confirmação na véspera.",
+        "O paciente falta e ninguém oferece um novo horário."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Como encontrar",
+      "titulo": "O que conferir esta semana.",
+      "itens": [
+        "Quanto tempo leva a primeira resposta, em dias úteis e no fim de semana.",
+        "Quantos orçamentos enviados tiveram retorno.",
+        "Quantas faltas foram remarcadas.",
+        "Em qual etapa a lista de contatos mais diminui."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Antes de comprar mais leads, descubra onde os seus estão *vazando*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Em qual dos cinco a sua clínica perde mais?",
+      "texto": "Comente o número do vazamento que você reconheceu. Salve para revisar com a recepção.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "O lead chegou. Onde ele foi parar?\n\nNa maioria das clínicas, o vazamento de leads acontece depois do anúncio: na primeira resposta que demora, no preço que encerra a conversa, no orçamento sem retorno, na consulta sem confirmação e na falta que ninguém remarca.\n\nNenhum desses pontos aparece no relatório da campanha. Por isso a agência vê leads e a recepção vê silêncio.\n\nNo carrossel: os 5 vazamentos e o que conferir ainda esta semana para descobrir qual pesa mais na sua clínica.\n\nComente qual deles você reconheceu. Se quiser mapear o seu funil, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

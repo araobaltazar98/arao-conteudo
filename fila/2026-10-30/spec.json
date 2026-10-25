@@ -1,0 +1,46 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Cases e números",
+      "titulo": "O que verba alta *ensina*.",
+      "subtitulo": "Lições de acompanhar mais de R$ 1 milhão por mês em mídia na saúde."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "A primeira tela da semana.",
+      "texto": "Antes do gerenciador de anúncios, vale abrir o CRM.\n\nQuantos leads chegaram, quantos agendaram, quantos fecharam.\n\nCom verba alta, a campanha se ajusta pelo *paciente*, não pelo clique."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "O que fica",
+      "titulo": "Três lições.",
+      "itens": [
+        "Um erro pequeno de configuração custa caro em poucas horas. Revisão é rotina, não evento.",
+        "Mais verba não corrige um atendimento lento. Só amplia o vazamento.",
+        "Sem a origem de cada paciente registrada, nenhum ajuste de campanha é confiável."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "O número",
+      "numero": "R$ 1 mi",
+      "contexto": "ou mais, todo mês, em mídia sob gestão no Instituto Pedro Ruiz, acompanhada *do clique à cadeira*.",
+      "fonte": "Mídia sob gestão no IPR · últimos 2 anos"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Volume não substitui *método*. Só deixa o erro mais caro."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "A sua verba é acompanhada até o paciente?",
+      "texto": "O mesmo método vale para qualquer tamanho de investimento. Salve para revisar com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "O que acompanhar mais de R$ 1 milhão por mês em mídia ensina sobre clínicas?\n\nHá 2 anos, faço a gestão de mais de R$ 1 milhão por mês em mídia no Instituto Pedro Ruiz. A principal lição não tem a ver com o tamanho da verba, e sim com a ordem em que se olham os números.\n\nCom investimento alto, um erro pequeno custa caro em poucas horas. Mais verba não corrige atendimento lento, só amplia o vazamento. E sem a origem de cada paciente registrada, nenhum ajuste de campanha é confiável.\n\nO método é o mesmo para qualquer tamanho de clínica: começar pelo CRM e acompanhar do clique à cadeira.\n\nSalve para revisar com a sua equipe. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

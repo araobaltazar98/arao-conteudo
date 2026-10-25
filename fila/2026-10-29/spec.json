@@ -1,0 +1,51 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Educação",
+      "titulo": "3 métricas que *importam*.",
+      "subtitulo": "E 5 que enfeitam o relatório da sua agência."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Doze páginas de gráficos.",
+      "texto": "Alcance, impressões, cliques, curtidas e seguidores, todos subindo.\n\nNo fim do relatório, uma pergunta continua sem resposta:\n\nquantos *pacientes* a campanha trouxe?"
+    },
+    {
+      "tipo": "lista",
+      "kicker": "As 3 que importam",
+      "titulo": "Leia estas primeiro.",
+      "itens": [
+        "Custo por paciente: o investimento dividido pelos pacientes que fecharam.",
+        "Taxa de agendamento: de cada 100 leads, quantos marcaram consulta.",
+        "Faturamento atribuído: quanto faturaram os pacientes que vieram dos anúncios."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "As 5 que enfeitam",
+      "titulo": "Úteis para a agência. Pouco úteis para decidir.",
+      "itens": [
+        "Alcance: quantas pessoas viram o anúncio.",
+        "Impressões: quantas vezes o anúncio apareceu.",
+        "CTR: a porcentagem de quem viu e clicou.",
+        "Curtidas e comentários nos anúncios.",
+        "Novos seguidores."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Relatório bom é o que ajuda a *decidir*, não o que tem mais gráficos."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Peça as 3 métricas no próximo relatório.",
+      "texto": "Se a agência não consegue entregar, falta conectar a campanha ao CRM. Salve e envie para quem cuida do seu marketing.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "O seu relatório de marketing responde quantos pacientes a campanha trouxe?\n\nAlcance, impressões, CTR (a porcentagem de quem viu o anúncio e clicou), curtidas e seguidores ajudam a agência a ajustar os anúncios. Mas não dizem ao dono da clínica se o investimento voltou.\n\nPara decidir, três métricas bastam: custo por paciente, taxa de agendamento e faturamento atribuído, que é quanto faturaram os pacientes vindos dos anúncios.\n\nSe essas três não aparecem no relatório, geralmente falta ligar a campanha ao CRM, o sistema onde a recepção registra cada contato.\n\nSalve e envie para quem cuida do seu marketing. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
