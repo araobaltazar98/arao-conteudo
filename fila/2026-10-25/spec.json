@@ -1,0 +1,29 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Bastidores do método",
+      "titulo": "3 perguntas antes da *campanha*.",
+      "subtitulo": "O que vale responder antes de investir o primeiro real."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "As perguntas",
+      "titulo": "Antes de abrir qualquer campanha:",
+      "itens": [
+        "Quanto vale um paciente para esta clínica?",
+        "Quem responde o lead, e em quanto tempo?",
+        "Onde vamos registrar se ele agendou, compareceu e fechou?"
+      ]
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Sem essas respostas, o anúncio vira *aposta*.",
+      "texto": "Com elas, cada real investido pode ser acompanhado até a cadeira. Salve para a sua próxima reunião de marketing.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Antes de falar de anúncio, três perguntas.\n\nQuanto vale um paciente para a clínica. Quem responde o lead, e em quanto tempo. E onde fica registrado se ele agendou, compareceu e fechou.\n\nParecem perguntas simples, mas sem elas não dá para saber se uma campanha funcionou. Com elas, cada real investido pode ser acompanhado do clique à cadeira.\n\nSalve para a próxima reunião de marketing da sua clínica. Se quiser ajuda para responder as três, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
