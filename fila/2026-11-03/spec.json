@@ -1,0 +1,51 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Onde os leads vazam",
+      "titulo": "O orçamento que ficou *sem resposta*.",
+      "subtitulo": "O paciente pediu o valor. Depois disso, ninguém voltou a falar com ele."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Terça, 16h. Orçamento enviado.",
+      "texto": "A paciente fez a avaliação e pediu o valor do tratamento.\n\nA recepção mandou o PDF pelo WhatsApp e deu a tarefa por concluída.\n\nDuas semanas depois, ninguém sabe se ela *desistiu ou só esqueceu*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Por que acontece",
+      "titulo": "Onde o orçamento se perde.",
+      "itens": [
+        "Ninguém é responsável pelo retorno depois do envio.",
+        "O CRM não tem uma etapa para orçamento enviado.",
+        "A recepção tem receio de parecer insistente.",
+        "A dúvida real do paciente (prazo, parcelamento, recuperação) nunca foi perguntada."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Os ajustes",
+      "titulo": "O que muda na rotina.",
+      "itens": [
+        "Criar a etapa orçamento enviado no CRM, com data.",
+        "Definir quem retoma o contato e em quantos dias.",
+        "Perguntar qual é a dúvida, não só se o paciente decidiu.",
+        "Comparar toda semana: orçamentos enviados e tratamentos fechados."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Orçamento enviado não é venda perdida. É venda *sem acompanhamento*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Quantos orçamentos estão parados hoje?",
+      "texto": "Conte os enviados nos últimos 30 dias que não tiveram retorno. Esse número mostra quanto do anúncio ficou no caminho.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "A paciente pediu o orçamento. E depois?\n\nEm muitas clínicas, o orçamento é enviado pelo WhatsApp e a tarefa termina ali. Ninguém fica responsável pelo retorno, o CRM não tem uma etapa para isso e a dúvida real do paciente nunca é perguntada.\n\nO resultado é um vazamento de leads que não aparece no relatório da campanha: o anúncio trouxe a pessoa, a avaliação aconteceu, e a decisão ficou sem acompanhamento.\n\nNo carrossel: por que o orçamento se perde e 4 ajustes simples para a rotina da recepção.\n\nUm exercício para esta semana: conte quantos orçamentos dos últimos 30 dias ficaram sem retorno. Se quiser mapear esse e outros vazamentos, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

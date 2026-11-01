@@ -1,0 +1,23 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Lead não é paciente",
+      "titulo": "Resultado se mede no *CRM*.",
+      "subtitulo": "Uma opinião sobre como agências medem o próprio trabalho."
+    },
+    {
+      "tipo": "frase",
+      "frase": "Quem só mostra o gerenciador de anúncios está medindo o próprio trabalho, não o *resultado da clínica*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Pergunte quantos leads viraram pacientes.",
+      "texto": "CRM é o sistema onde a clínica registra cada contato e o que aconteceu com ele. Se ninguém olha esse registro, ninguém sabe o resultado. Salve para a próxima reunião.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Resultado de marketing em clínica não está no gerenciador de anúncios.\n\nO gerenciador mostra alcance, cliques e leads. É útil, mas mede o trabalho de quem anuncia. O resultado da clínica está em outro lugar: no CRM, o sistema onde cada contato é registrado com o que aconteceu depois. Agendou, compareceu, fechou tratamento.\n\nQuando a agência não olha esse registro, ela fala de lead como se fosse paciente. E lead não é paciente.\n\nNa próxima reunião, faça uma pergunta só: quantos leads da campanha viraram pacientes no mês? A resposta mostra se alguém está acompanhando do clique à cadeira.\n\nSalve para essa reunião. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

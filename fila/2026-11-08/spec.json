@@ -1,0 +1,31 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Bastidores do método",
+      "titulo": "Antes da verba, o *CRM*.",
+      "subtitulo": "O que confiro nos registros da clínica antes de aumentar ou cortar o investimento."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A conferência",
+      "titulo": "Cinco perguntas ao CRM:",
+      "itens": [
+        "Todo lead tem a origem registrada?",
+        "Quantos leads da semana tiveram a primeira resposta no mesmo dia?",
+        "Quantos agendamentos viraram comparecimento?",
+        "Quantos orçamentos enviados estão sem retorno?",
+        "Os tratamentos fechados estão com valor e data anotados?"
+      ]
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Se o CRM não responde, a verba *espera*.",
+      "texto": "Mexer no investimento com registros incompletos é decidir sem enxergar. Salve para a próxima revisão de campanha.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Antes de aumentar ou cortar a verba de uma clínica, eu abro o CRM.\n\nO CRM é onde a clínica registra cada contato e o que aconteceu com ele. Se os registros estão incompletos, qualquer ajuste de verba vira palpite.\n\nAs cinco perguntas que confiro: todo lead tem origem registrada? Quantos tiveram resposta no mesmo dia? Quantos agendamentos viraram comparecimento? Quantos orçamentos estão sem retorno? Os tratamentos fechados têm valor e data?\n\nQuando o CRM não responde, a primeira tarefa não é mexer na campanha. É arrumar o registro.\n\nSalve para a próxima revisão de campanha. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

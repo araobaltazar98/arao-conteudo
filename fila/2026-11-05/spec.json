@@ -1,0 +1,51 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Educação",
+      "titulo": "Quem trouxe esse *paciente*?",
+      "subtitulo": "Atribuição: o que é e por que a sua clínica precisa dela."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Três canais, um paciente.",
+      "texto": "Ela viu um anúncio no Instagram, pesquisou a clínica no Google dias depois e chamou no WhatsApp.\n\nFechou o tratamento na avaliação.\n\nNo fim do mês, Instagram, Google e recepção *contam o mesmo paciente*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A definição",
+      "titulo": "Atribuição, sem jargão.",
+      "itens": [
+        "É a regra que decide qual canal recebe o crédito por um paciente.",
+        "Primeiro contato: o crédito vai para o canal que apresentou a clínica.",
+        "Último contato: o crédito vai para o canal que veio logo antes da mensagem.",
+        "Nenhuma regra é perfeita. O problema é não ter nenhuma."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Por que importa",
+      "titulo": "O que muda com ela.",
+      "itens": [
+        "A verba vai para o canal que traz paciente, não só lead.",
+        "O relatório da agência e o da clínica passam a contar a mesma história.",
+        "Cortar uma campanha deixa de ser aposta.",
+        "O faturamento atribuído vira um número, não uma opinião."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Sem atribuição, todo canal parece bom e nenhum é *responsável*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Como a sua clínica dá o crédito hoje?",
+      "texto": "Perguntar como o paciente conheceu a clínica já é um começo. Salve para definir a regra com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quando um paciente fecha tratamento, qual canal trouxe esse paciente?\n\nA pergunta parece simples, mas raramente é. A pessoa vê um anúncio no Instagram, pesquisa no Google dias depois e chama no WhatsApp. No fim do mês, cada canal conta o mesmo paciente como seu.\n\nAtribuição é a regra que decide quem recebe o crédito. Pode ser o primeiro contato, o que apresentou a clínica, ou o último, o que veio logo antes da mensagem. Nenhuma regra é perfeita, mas sem nenhuma a verba é distribuída no escuro.\n\nCom uma regra definida, a verba vai para o canal que traz paciente, o relatório da agência e o da clínica passam a bater e o faturamento atribuído vira um número.\n\nSalve para definir a regra com a sua equipe. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
