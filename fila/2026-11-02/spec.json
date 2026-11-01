@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "A conta do paciente",
+      "titulo": "Quatro passos até o *faturamento*.",
+      "subtitulo": "Como saber quanto cada anúncio trouxe de receita para a clínica."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "O relatório termina no lead.",
+      "texto": "A campanha mostra cliques, leads e custo por lead.\n\nO financeiro mostra quanto a clínica faturou no mês.\n\nEntre os dois relatórios, ninguém liga *um ao outro*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Os 4 passos",
+      "titulo": "Do anúncio ao caixa.",
+      "itens": [
+        "Marcar a origem: cada link de anúncio leva uma etiqueta (UTM) com o nome da campanha.",
+        "Registrar no CRM: o sistema onde a clínica anota cada contato guarda essa origem desde a primeira mensagem.",
+        "Acompanhar as etapas: agendou, compareceu, fechou tratamento.",
+        "Somar o valor: cada tratamento fechado entra no faturamento da campanha de origem."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "A conta no fim",
+      "numero": "R$ 6",
+      "contexto": "faturados para cada R$ 1 investido, quando R$ 8 mil em anúncios trazem 12 pacientes que fecham *R$ 48 mil* em tratamentos.",
+      "fonte": "Exemplo ilustrativo"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Investimento é o que você consegue acompanhar *até o caixa*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Em qual passo a sua clínica para?",
+      "texto": "Se a origem do contato se perde no WhatsApp, a conta para no segundo passo. Salve e confira com a sua equipe.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Você sabe quanto faturou o anúncio que rodou no mês passado?\n\nEm muitos relatórios, a conta termina no lead. O financeiro tem o faturamento, a campanha tem os cliques, e nada liga um ao outro.\n\nSão 4 passos para fechar essa conta: marcar a origem de cada link com uma etiqueta (UTM), registrar essa origem no CRM desde a primeira mensagem, acompanhar as etapas até o tratamento fechado e somar o valor de cada paciente à campanha que o trouxe.\n\nNo exemplo ilustrativo do carrossel, R$ 8 mil em anúncios viram R$ 48 mil em tratamentos: R$ 6 para cada R$ 1 investido. Sem os 4 passos, esse número simplesmente não existe.\n\nSalve para conferir com a sua equipe. Se quiser montar essa conta na sua clínica, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

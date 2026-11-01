@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Cases e números",
+      "titulo": "Sete meses, dois *números*.",
+      "subtitulo": "A parceria com o Instituto Brasileiro de Plástica e como ler um case de clínica."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Número solto não é prova.",
+      "texto": "Todo dia aparece um print de faturamento sem período, sem verba e sem fonte.\n\nPara quem decide, isso não ajuda.\n\nUm case só serve quando mostra *de onde vem cada número*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Como ler um case",
+      "titulo": "Quatro perguntas.",
+      "itens": [
+        "Período: em quanto tempo o resultado aconteceu?",
+        "Investimento: quanto foi para a mídia nesse tempo?",
+        "Resultado: é faturamento, ou são leads e seguidores?",
+        "Fonte: de onde vem o número e quem pode confirmá-lo?"
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "Instituto Brasileiro de Plástica",
+      "numero": "R$ 2 mi",
+      "contexto": "ou mais, faturados em *7 meses* de parceria, com mais de R$ 100 mil em mídia gerenciada no mesmo período.",
+      "fonte": "Instituto Brasileiro de Plástica · 7 meses de parceria"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Case sem período, investimento e fonte é *propaganda*, não prova."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Faça as quatro perguntas aos seus números.",
+      "texto": "O diagnóstico do funil começa por elas: período, verba, pacientes e faturamento. Salve para avaliar o próximo case que aparecer.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Como saber se um case de marketing para clínicas é prova ou propaganda?\n\nQuatro perguntas resolvem: em quanto tempo, com quanto investimento, qual resultado (faturamento, não seguidores) e de onde vem o número.\n\nAplicando o mesmo critério a um trabalho meu: na parceria com o Instituto Brasileiro de Plástica, foram mais de R$ 100 mil em mídia gerenciada e mais de R$ 2 milhões faturados em 7 meses.\n\nPeríodo, investimento e resultado juntos. É assim que um número ajuda quem precisa decidir.\n\nSalve para avaliar o próximo case que aparecer. Se quiser olhar os números da sua clínica com o mesmo critério, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
