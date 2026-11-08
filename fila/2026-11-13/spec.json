@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Cases e números",
+      "titulo": "O diagnóstico, por *dentro*.",
+      "subtitulo": "O que é analisado quando olhamos o funil de uma clínica, do clique à cadeira."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "A clínica investe, mas não sabe onde perde.",
+      "texto": "Os anúncios trazem contatos. A agenda tem movimento. Mesmo assim, ninguém consegue dizer quanto custa cada paciente.\n\nO diagnóstico do funil existe para responder *essa pergunta*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "O que é analisado",
+      "titulo": "As etapas do funil:",
+      "itens": [
+        "Origem: de quais anúncios vêm os leads.",
+        "Atendimento: tempo e qualidade da primeira resposta.",
+        "Agenda: agendamentos, comparecimentos e faltas.",
+        "Fechamento: orçamentos enviados e tratamentos fechados."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "De onde vem o olhar",
+      "numero": "R$ 1 mi",
+      "contexto": "ou mais, por mês em mídia sob gestão no Instituto Pedro Ruiz, onde o mesmo critério é aplicado há *2 anos*.",
+      "fonte": "Instituto Pedro Ruiz · gestão de mídia há 2 anos"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Antes de mudar a campanha, é preciso saber em qual etapa o paciente *se perde*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Comece pelo seu funil.",
+      "texto": "Investimento, leads, agendamentos e pacientes do último mês são suficientes para a primeira conversa.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "O que é analisado em um diagnóstico de funil?\n\nO ponto de partida é uma pergunta: quanto custa o paciente da sua clínica? Para responder, o funil é olhado etapa por etapa, do clique à cadeira.\n\nOrigem: de quais anúncios vêm os leads. Atendimento: quanto tempo leva a primeira resposta e como ela acontece. Agenda: quantos agendamentos viram comparecimento. Fechamento: quantos orçamentos viram tratamento.\n\nÉ o mesmo critério que aplico há 2 anos no Instituto Pedro Ruiz, com mais de R$ 1 milhão por mês em mídia sob gestão.\n\nPara a primeira conversa, bastam os números do último mês: investimento, leads, agendamentos e pacientes. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

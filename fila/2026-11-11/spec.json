@@ -1,0 +1,23 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Lead não é paciente",
+      "titulo": "Relatório bonito não é *resultado*.",
+      "subtitulo": "Uma opinião sobre o que deveria estar na primeira página."
+    },
+    {
+      "tipo": "frase",
+      "frase": "Gráfico colorido de alcance e cliques não diz quantos pacientes a clínica *ganhou*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Peça três números no próximo relatório.",
+      "texto": "Investimento do mês, pacientes que fecharam e faturamento atribuído, ou seja, o faturamento que veio desses pacientes. Salve para a próxima reunião.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Relatório bonito não é resultado.\n\nMuitas clínicas recebem todo mês um documento caprichado: gráficos de alcance, impressões, cliques, custo por lead. Tudo organizado, nada errado. E nenhuma linha diz quantos pacientes a clínica ganhou com aquele investimento.\n\nO problema não é o gráfico. É a ordem. O que importa para quem decide deveria vir na primeira página: quanto foi investido, quantos pacientes fecharam e quanto faturamento veio deles.\n\nAlcance e cliques ajudam a ajustar a campanha. Pacientes e faturamento dizem se ela funcionou.\n\nNa próxima reunião, peça esses três números. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
