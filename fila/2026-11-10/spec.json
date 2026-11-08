@@ -1,0 +1,51 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Onde os leads vazam",
+      "titulo": "A falta que ninguém *remarca*.",
+      "subtitulo": "O paciente agendou, não veio, e a clínica seguiu a agenda."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Terça, 14h. A cadeira fica vazia.",
+      "texto": "O paciente veio de um anúncio, conversou com a recepção e marcou a avaliação.\n\nNo dia, não apareceu. A recepção chama o próximo e ninguém volta a falar com ele.\n\nO anúncio foi pago. A conversa foi feita. O lead se perdeu *na última etapa*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Por que acontece",
+      "titulo": "Quatro causas comuns:",
+      "itens": [
+        "Nenhuma confirmação na véspera.",
+        "Ninguém responsável por ligar para quem faltou.",
+        "A falta não fica registrada no CRM, o sistema onde a clínica anota cada contato.",
+        "O relatório de marketing conta o agendamento como resultado."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Os ajustes",
+      "titulo": "O que muda a rotina:",
+      "itens": [
+        "Confirmar toda consulta no dia anterior.",
+        "Oferecer novo horário no mesmo dia da falta.",
+        "Registrar falta e remarcação no CRM.",
+        "Medir comparecimento, não só agendamento."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Agendamento é promessa. Paciente é quem *senta na cadeira*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Conte as faltas do último mês.",
+      "texto": "Quantas foram remarcadas? A resposta mostra quanto do investimento em mídia ficou na agenda. Salve e envie para quem cuida da recepção.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quantos pacientes faltaram na sua clínica no último mês, e quantos foram remarcados?\n\nA falta é um dos vazamentos mais silenciosos do funil. O paciente veio do anúncio, conversou com a recepção, agendou. No dia, não apareceu. A agenda segue e ninguém volta a falar com ele.\n\nAs causas costumam ser de rotina: nenhuma confirmação na véspera, ninguém responsável por ligar para quem faltou, a falta sem registro no CRM e um relatório que conta agendamento como resultado.\n\nOs ajustes também são de rotina: confirmar na véspera, oferecer novo horário no mesmo dia, registrar falta e remarcação e medir comparecimento.\n\nSalve e envie para quem cuida da recepção. Se quiser ver onde o seu funil vaza, o diagnóstico está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
