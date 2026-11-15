@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Cases e números",
+      "titulo": "Desde 2019, na *saúde*.",
+      "subtitulo": "O que mudou em 7 anos de mídia paga para clínicas."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "O contexto",
+      "titulo": "Em 2019, bastava olhar o lead.",
+      "texto": "O relatório mostrava alcance, cliques e custo por lead. Se o custo caía, a campanha era considerada boa.\n\nHoje essa leitura *não basta*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "O que mudou",
+      "titulo": "Quatro mudanças:",
+      "itens": [
+        "A conversa com o lead passou para o WhatsApp, longe do formulário.",
+        "As plataformas passaram a entregar menos dados de rastreamento.",
+        "Mais clínicas disputam o mesmo público nos anúncios.",
+        "Medir só o lead deixou de mostrar o que gera faturamento."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "De onde vem o olhar",
+      "numero": "7 anos",
+      "contexto": "de mídia paga com foco em clínicas e empresas de saúde, desde *2019*.",
+      "fonte": "Trajetória de Arão Baltazar · desde 2019"
+    },
+    {
+      "tipo": "frase",
+      "frase": "O que não mudou: só o paciente paga a *conta*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "O seu funil está medido para hoje?",
+      "texto": "Investimento, leads, agendamentos e pacientes do último mês bastam para a primeira conversa.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Trabalho com mídia paga para clínicas e empresas de saúde desde 2019. Em 7 anos, a forma de medir mudou mais do que a forma de anunciar.\n\nNo começo, o relatório parava no lead: alcance, cliques e custo por contato. Se o custo caía, a campanha era considerada boa.\n\nDe lá para cá, a conversa com o lead foi para o WhatsApp, as plataformas passaram a entregar menos dados de rastreamento e mais clínicas passaram a disputar o mesmo público. Medir só o lead deixou de mostrar o que gera faturamento.\n\nO que não mudou: a única métrica que paga a conta é o paciente que senta na cadeira.\n\nSe o seu funil ainda é medido como em 2019, o diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

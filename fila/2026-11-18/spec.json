@@ -1,0 +1,23 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Lead não é paciente",
+      "titulo": "O lead barato *custa caro*.",
+      "subtitulo": "Por que o menor custo por lead nem sempre é a melhor campanha."
+    },
+    {
+      "tipo": "frase",
+      "frase": "Lead barato que não agenda ocupa a recepção e não entra no *caixa*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Compare campanhas pelo *paciente*.",
+      "texto": "Custo por lead é o começo da conta, não o resultado.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "O lead mais barato pode ser o mais caro da sua clínica.\n\nUma campanha com custo por lead baixo parece eficiente no relatório. Mas, se esses contatos não agendam, não comparecem ou só perguntam o preço, o custo real aparece em outro lugar: no tempo da recepção e na agenda que não enche.\n\nA comparação justa entre campanhas é pelo custo por paciente: quanto foi investido dividido por quantos contatos daquela campanha viraram tratamento.\n\nÀs vezes, a campanha com o lead mais caro é a que traz o paciente mais barato.\n\nSalve para a próxima reunião de resultados. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

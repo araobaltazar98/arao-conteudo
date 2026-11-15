@@ -1,0 +1,47 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "A conta do paciente",
+      "titulo": "A verba começa na *agenda*.",
+      "subtitulo": "Quanto investir em mídia, com a conta feita de trás para frente."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "O valor do mês sai de um palpite.",
+      "texto": "A clínica define a verba olhando para o que sobrou no caixa ou para o que o concorrente parece gastar.\n\nA pergunta certa vem antes: quantos pacientes novos a *agenda* comporta?"
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A conta, de trás para frente",
+      "titulo": "Quatro perguntas:",
+      "itens": [
+        "Quantos pacientes novos cabem na agenda do mês.",
+        "Quantos agendamentos são necessários para chegar a esse número.",
+        "Quantos leads geram esses agendamentos.",
+        "Quanto custa cada paciente que veio dos anúncios."
+      ]
+    },
+    {
+      "tipo": "dado",
+      "kicker": "Um exemplo",
+      "numero": "10 mil",
+      "contexto": "reais por mês para uma meta de 20 pacientes novos, se cada paciente vindo de anúncio custa *R$ 500*.",
+      "fonte": "Exemplo ilustrativo"
+    },
+    {
+      "tipo": "frase",
+      "frase": "Verba sem meta de pacientes é *aposta*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Descubra o seu custo por paciente.",
+      "texto": "Sem esse número, a conta de trás para frente não fecha. O diagnóstico começa por ele.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quanto a sua clínica deveria investir em mídia por mês?\n\nNa maioria das vezes, o valor sai do que sobrou no caixa ou do que parece razoável. A conta mais segura é feita de trás para frente, a partir da agenda.\n\nPrimeiro, quantos pacientes novos cabem no mês. Depois, quantos agendamentos são necessários para chegar a eles, quantos leads geram esses agendamentos e quanto custa cada paciente que veio dos anúncios.\n\nUm exemplo ilustrativo: com meta de 20 pacientes novos e custo de R$ 500 por paciente, a verba do mês fica em torno de R$ 10 mil. Se o custo por paciente ainda é desconhecido, é por ele que a conta começa.\n\nSalve para fazer essa conta no próximo planejamento. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

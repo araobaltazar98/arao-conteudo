@@ -1,0 +1,51 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Onde os leads vazam",
+      "titulo": "O lead esfria na *espera*.",
+      "subtitulo": "Quanto tempo a sua recepção leva para responder o primeiro contato?"
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Terça, 14h12: chega a mensagem.",
+      "texto": "A paciente pergunta sobre uma consulta de avaliação. A recepção está no balcão e responde só no fim da tarde.\n\nNesse intervalo, ela já conversou com *outras clínicas*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Onde o tempo se perde",
+      "titulo": "Causas comuns:",
+      "itens": [
+        "A mesma pessoa atende o balcão, o telefone e o WhatsApp.",
+        "Mensagens fora do horário ficam para o dia seguinte.",
+        "Ninguém mede o tempo da primeira resposta.",
+        "Não há resposta pronta para as perguntas mais frequentes."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Os ajustes",
+      "titulo": "Por onde começar:",
+      "itens": [
+        "Medir o tempo da primeira resposta durante uma semana.",
+        "Definir quem responde os leads que vêm de anúncio.",
+        "Ter mensagens prontas para valor, endereço e horários.",
+        "Combinar um prazo máximo de resposta no horário comercial."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Cada hora sem resposta é verba de anúncio *parada*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Meça a sua primeira resposta.",
+      "texto": "O diagnóstico do funil mostra em qual etapa o lead esfria antes de virar paciente.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quanto tempo a sua recepção leva para responder o primeiro contato?\n\nO anúncio fez a parte dele: a mensagem chegou. Se a resposta vem só no fim da tarde, a paciente já conversou com outras clínicas.\n\nAs causas costumam ser as mesmas: uma pessoa cuidando do balcão, do telefone e do WhatsApp, mensagens fora do horário que ficam para o dia seguinte e ninguém medindo o tempo da primeira resposta.\n\nO primeiro ajuste é simples: anotar, durante uma semana, quanto tempo cada lead esperou. Depois, definir quem responde os leads de anúncio e ter mensagens prontas para as perguntas de sempre.\n\nComente quanto tempo você acha que a sua clínica leva. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

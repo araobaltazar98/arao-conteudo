@@ -1,0 +1,50 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Educação",
+      "titulo": "A etiqueta de cada *paciente*.",
+      "subtitulo": "UTM: o que é e por que a sua clínica precisa dela."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "O paciente chega. De onde veio?",
+      "texto": "A recepção pergunta como ele conheceu a clínica. A resposta é \"vi no Instagram\". Foi um anúncio, uma postagem ou uma indicação?\n\nSem registro, o anúncio que trouxe o paciente fica *invisível*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "O que é UTM",
+      "titulo": "Uma etiqueta no link:",
+      "itens": [
+        "UTM é um trecho adicionado ao fim do link do anúncio.",
+        "Ele informa a origem: Google, Instagram ou Facebook.",
+        "Informa também a campanha e o anúncio clicado.",
+        "O site e o CRM, sistema onde ficam os contatos, guardam essa etiqueta com o lead."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Como usar",
+      "titulo": "Três cuidados:",
+      "itens": [
+        "Um padrão de nomes igual para todas as campanhas.",
+        "Formulário do site que grava a UTM no cadastro.",
+        "Origem preenchida em todo lead registrado no CRM."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Sem origem registrada, toda campanha parece *igual*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Você sabe a origem de cada paciente?",
+      "texto": "O diagnóstico do funil começa pela origem dos leads.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "De onde veio o último paciente que fechou tratamento na sua clínica?\n\nSe a resposta é \"do Instagram\", ainda falta informação. Foi um anúncio, uma postagem, uma indicação? E, se foi anúncio, qual deles?\n\nUTM é a etiqueta que responde isso. É um trecho adicionado ao fim do link do anúncio que informa a origem, a campanha e o anúncio clicado. O site e o CRM (o sistema onde ficam os contatos da clínica) guardam essa etiqueta junto com o lead.\n\nPara funcionar, três cuidados: um padrão de nomes para todas as campanhas, um formulário que grave a UTM no cadastro e a origem preenchida em todo lead.\n\nCom isso, cada paciente pode ser ligado ao anúncio que o trouxe. Salve este post. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
