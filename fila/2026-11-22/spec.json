@@ -1,0 +1,31 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Bastidores do método",
+      "titulo": "Uma linha por *contato*.",
+      "subtitulo": "Como separo lead, agendamento e paciente numa planilha simples."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A planilha",
+      "titulo": "As colunas:",
+      "itens": [
+        "Data e origem: de qual anúncio ou canal veio.",
+        "Lead: nome e telefone do contato recebido.",
+        "Agendamento: data marcada, ou vazio.",
+        "Paciente: compareceu, fechou e qual o valor.",
+        "Motivo de perda, quando não avançou."
+      ]
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Comece pela *próxima* semana.",
+      "texto": "Uma semana preenchida já mostra em qual etapa os contatos param.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Antes de qualquer sistema, uma planilha simples já separa lead, agendamento e paciente.\n\nA regra é uma linha por contato. Nas colunas: data e origem, nome e telefone, data do agendamento (ou vazio), se compareceu, se fechou e com qual valor. Por último, o motivo de perda quando o contato não avançou.\n\nCom uma semana preenchida, a leitura aparece sozinha: quantos contatos chegaram, quantos agendaram, quantos viraram paciente e em qual etapa a maioria parou.\n\nÉ por essa planilha que começo a análise quando a clínica ainda não tem um CRM organizado.\n\nSalve e comece na próxima segunda. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
