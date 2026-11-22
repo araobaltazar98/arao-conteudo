@@ -1,0 +1,23 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Lead não é paciente",
+      "titulo": "Mexer no anúncio nem sempre *resolve*.",
+      "subtitulo": "Antes de trocar a campanha, descubra onde o paciente se perde."
+    },
+    {
+      "tipo": "frase",
+      "frase": "Trocar o anúncio sem medir o funil é consertar o cano que não está *vazando*."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Meça antes de *mudar*.",
+      "texto": "Leads, agendamentos, comparecimentos e pacientes: o número que caiu mostra onde agir.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quando os pacientes novos diminuem, a primeira reação costuma ser mexer no anúncio.\n\nTroca-se o criativo, o público, a verba. Às vezes o problema estava ali. Muitas vezes, não: os leads continuam chegando, mas param no atendimento, na falta ou no orçamento sem retorno.\n\nAntes de mudar a campanha, vale olhar as quatro etapas: quantos leads chegaram, quantos agendaram, quantos compareceram e quantos fecharam tratamento. A etapa que caiu é onde está o ajuste.\n\nMexer no lugar errado custa tempo e verba, e o problema continua onde estava.\n\nSalve para a próxima vez que os números caírem. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

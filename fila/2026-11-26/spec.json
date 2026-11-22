@@ -1,0 +1,51 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Educação",
+      "titulo": "Google e Meta: *papéis* diferentes.",
+      "subtitulo": "Onde cada plataforma entra no caminho do paciente."
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "A pergunta errada é qual é melhor.",
+      "texto": "A clínica testa uma plataforma por um mês, compara o custo por lead e escolhe a mais barata.\n\nSó que as duas encontram o paciente em momentos diferentes. Comparar só o custo por lead mistura *intenções* diferentes."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Google Ads",
+      "titulo": "Quem já está procurando:",
+      "itens": [
+        "Anúncios que aparecem na busca do Google.",
+        "O paciente digita o problema ou o procedimento que quer.",
+        "Tende a trazer contatos com intenção mais clara.",
+        "O volume depende de quantas pessoas pesquisam na região."
+      ]
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Meta Ads",
+      "titulo": "Quem ainda não procurou:",
+      "itens": [
+        "Anúncios no Instagram e no Facebook.",
+        "Alcança pessoas pelo perfil e pelos interesses.",
+        "Ajuda a criar demanda e a manter a clínica lembrada.",
+        "Costuma pedir mais cuidado na qualificação do contato."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "A plataforma certa é a que traz o paciente mais *barato*, não o lead."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Compare as duas pelo *paciente*.",
+      "texto": "Com a origem de cada contato registrada, a comparação fica justa.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Google Ads ou Meta Ads: qual é melhor para a clínica?\n\nA pergunta mais útil é outra: qual é o papel de cada um. O Google Ads mostra anúncios para quem já está pesquisando um problema ou um procedimento. O Meta Ads (Instagram e Facebook) alcança pessoas pelo perfil e pelos interesses, antes de elas procurarem.\n\nPor isso, comparar só o custo por lead mistura intenções diferentes. Um contato da busca e um contato do Instagram chegam em momentos diferentes da decisão.\n\nA comparação justa é pelo custo por paciente: quanto foi investido em cada plataforma dividido por quantos contatos dela viraram tratamento. Para isso, cada lead precisa estar registrado com a origem.\n\nSalve para a próxima vez que alguém perguntar qual plataforma usar. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
