@@ -1,0 +1,48 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Cases e números",
+      "titulo": "Verba alta pede leitura *semanal*.",
+      "subtitulo": "O que acompanhar toda semana quando o investimento é grande."
+    },
+    {
+      "tipo": "dado",
+      "kicker": "A escala",
+      "numero": "R$ 1 mi",
+      "contexto": "Mais de R$ 1 milhão por mês em mídia sob gestão no Instituto Pedro Ruiz, há *2 anos*.",
+      "fonte": "Instituto Pedro Ruiz (IPR Blefaroplastia), últimos 2 anos"
+    },
+    {
+      "tipo": "texto",
+      "kicker": "A cena",
+      "titulo": "Com verba alta, um erro custa mais rápido.",
+      "texto": "Em uma conta pequena, um problema pode esperar o fechamento do mês.\n\nCom investimento alto, uma semana sem leitura já é dinheiro que foi para a etapa errada do funil. A revisão precisa ter *ritmo*."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "Toda semana",
+      "titulo": "O que acompanho:",
+      "itens": [
+        "Investimento por campanha e por plataforma.",
+        "Leads e agendamentos de cada origem.",
+        "Custo por agendamento, não só custo por lead.",
+        "Contatos sem resposta ou sem retorno da recepção.",
+        "Pacientes fechados e o faturamento atribuído a cada campanha."
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frase": "Na escala, o que não é medido toda semana vira *desperdício* no fim do mês."
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Leia a sua conta com *ritmo*.",
+      "texto": "O diagnóstico mostra o que a clínica precisa acompanhar toda semana.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quanto maior a verba, menor o tempo que um problema pode esperar.\n\nHá 2 anos, faço a gestão de mais de R$ 1 milhão por mês em mídia no Instituto Pedro Ruiz (IPR Blefaroplastia). Nessa escala, uma semana sem leitura já é dinheiro indo para a etapa errada do funil.\n\nToda semana, acompanho: investimento por campanha e por plataforma, leads e agendamentos de cada origem, custo por agendamento, contatos sem resposta e pacientes fechados com o faturamento atribuído (a receita ligada a cada campanha).\n\nNão é preciso ter verba alta para usar essa rotina. Mas, quanto maior o investimento, mais cara fica a falta dela.\n\nSalve para montar a sua revisão semanal. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}

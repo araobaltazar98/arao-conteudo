@@ -1,0 +1,31 @@
+{
+  "formato": "carrossel",
+  "slides": [
+    {
+      "tipo": "capa",
+      "kicker": "Bastidores do método",
+      "titulo": "Quando a campanha *para*.",
+      "subtitulo": "A ordem em que investigo antes de mudar qualquer coisa."
+    },
+    {
+      "tipo": "lista",
+      "kicker": "A investigação",
+      "titulo": "A ordem que sigo:",
+      "itens": [
+        "Comparo o período com as semanas anteriores, etapa por etapa.",
+        "Vejo se o volume de leads caiu ou se só a conversão caiu.",
+        "Confiro o tempo de resposta e os retornos da recepção.",
+        "Olho a agenda: faltas, horários e remarcações.",
+        "Só então reviso anúncio, público e verba."
+      ]
+    },
+    {
+      "tipo": "cta",
+      "kicker": "Próximo passo",
+      "titulo": "Descubra em qual *etapa* parou.",
+      "texto": "O diagnóstico faz essa leitura com os dados da sua clínica.",
+      "botao": "Diagnóstico do funil · link na bio"
+    }
+  ],
+  "legenda": "Quando uma campanha para de trazer pacientes, a tentação é mudar o anúncio no mesmo dia. No meu processo, essa é a última etapa.\n\nPrimeiro, comparo o período com as semanas anteriores, etapa por etapa. Depois, vejo se caiu o volume de leads ou só a conversão em agendamento e em paciente.\n\nSe os leads continuam chegando, a investigação vai para o atendimento: tempo de resposta, retornos e orçamentos acompanhados. Em seguida, para a agenda: faltas, horários disponíveis e remarcações.\n\nSó quando essas etapas estão estáveis é que reviso anúncio, público e verba. Assim, o ajuste vai para o lugar onde o paciente realmente se perdeu.\n\nSalve para a próxima vez que os números caírem. O diagnóstico do funil está no link da bio.\n\n#marketingmedico #gestaodeclinicas #trafegopago #marketingparaclinicas"
+}
